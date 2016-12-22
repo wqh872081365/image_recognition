@@ -1,5 +1,7 @@
-pillow
-requests
-numpy
-matplotlib
-lxml
+pillow==3.4.2
+requests==2.12.4
+numpy==1.11.3
+matplotlib==1.5.3
+lxml==3.7.0
+gprof2dot==2016.10.13
+pyprof2calltree==1.4.0
