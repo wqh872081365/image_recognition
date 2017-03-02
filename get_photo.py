@@ -2,6 +2,7 @@
 
 import requests
 import uuid
+import json
 from lxml import html
 from settings import *
 
@@ -14,6 +15,19 @@ def get_photo_from_url(client, url):
                 f.write(chunk)
     else:
         pass
+
+def get_api_data():
+    client = requests.session()
+    payload = {
+        'phone': PHONE_API,
+        'password': PASSWORD_API,
+    }
+
+    r_login = client.post(URL_API, data=json.dumps(payload))
+    print r_login.text
+
+    r_get_user = client.get(URL_ROOT_API + '/enrollment/api/get-user/')
+    print r_get_user.text
 
 def main():
 
@@ -45,4 +59,5 @@ def main():
             get_photo_from_url(client, result_url)
 
 if __name__ == '__main__':
-    main()
+    # main()
+    get_api_data()
